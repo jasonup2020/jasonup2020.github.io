@@ -29,7 +29,7 @@
 		{"key":"csp_If101","name":"If101(墙外)","type":3,"api":"csp_If101","searchable":1,"quickSearch":1,"filterable":1},
 		{"key":"csp_Nbys","name":"泥视频(墙外)","type":3,"api":"csp_NiNi","searchable":1,"quickSearch":1,"filterable":1},
 		{"key":"csp_trj","name":"唐人街(墙外)","type":3,"api":"csp_Tangrenjie","searchable":1,"quickSearch":1,"filterable":1},
-        {"key": "csp_apilyzy","name": "Key_apilyzy","type": 2,"api": "csp_apilyzy","playUrl": "https://player.77lehuo.com/aliplayer/?url=","searchable": 1,"quickSearch": 1,"filterable": 0，"ext":"https://laoyazy55.com/index.php"},
+        	{"key": "csp_apilyzy","name": "Key_apilyzy","type": 2,"api": "csp_apilyzy","playUrl": "https://player.77lehuo.com/aliplayer/?url=","searchable": 1,"quickSearch": 1,"filterable": 0,"ext":"https://laoyazy55.com/index.php"},
 		{"key": "Key_apilyzy","name": "Key_apilyzy","type": 2,"api": "https://api.apilyzy.com/api.php/provide/vod/?ac=list","playUrl": "https://player.77lehuo.com/aliplayer/?url=","searchable": 1,"quickSearch": 1,"filterable": 0},
 		{"key":"dr_兔小贝","name":"儿童启蒙","type":3,"api":"https://ftyyy.tk/JS/lib/drpy.min.js","ext":"http://ftyyy.tk/JS/js/兔小贝.js","searchable":0,"quickSearch":0,"filterable":0},
 		{"key":"少儿教育","name":"少儿教育","type":3,"api":"csp_Bili","searchable":0,"quickSearch":0,"filterable":1,"ext":"http://cdn.饭太硬.ga/x/json/少儿教育.json"},
