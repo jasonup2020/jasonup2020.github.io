@@ -1,5 +1,5 @@
 {    
-    "spider":"./jar/XBiubiuLA4.jar"    
+    "spider":"https://jasonup2020.github.io/ok2023/jar/XBiubiuLA4.jar"    
     ,"lives":[{"name":"live","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/dxawi/1/main/tvlive.txt","epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}]
     ,"sites":[
         
@@ -23,6 +23,10 @@
         {"key": "点播源2","name": "🌸点播源2", "type": 0, "api": "https://api.apilyzy.com/api.php/provide/vod/at/xml","playUrl": "https://player.77lehuo.com/aliplayer/?url=","searchable": 1, "quickSearch": 1, "filterable": 0},
         {"key": "点播源3","name": "🌸点播源3", "type": 0, "api": "https://api.ykapi.net/api.php/provide/vod/at/xml","playUrl": "https://jx.ykyunbo.com/m3u8.php?url=","searchable": 1, "quickSearch": 1, "filterable": 0},
         {"key": "点播源4","name": "🌸点播源4", "type": 1, "api": "https://kudian10.com/api.php/provide/vod/?ac=list","searchable": 1, "quickSearch": 1, "filterable": 0},
+        {"key": "点播源5","name": "🌸点播源5", "type": 1, "api": "https://www.hongniuzy2.com/api.php/provide/vod/from/hnm3u8/","searchable": 1, "quickSearch": 1, "filterable": 0},
+        {"key": "点播源6","name": "🌸点播源6", "type": 1, "api": "https://www.partnersky-horoskop.com/api.php/provide/vod/from/dplayer/at/json","searchable": 1, "quickSearch": 1, "filterable": 0},
+        {"key": "新浪资源","name": "🌸新浪资源", "type": 0, "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/at/xml/","searchable": 1, "quickSearch": 1, "filterable": 0},
+        {"key": "虎牙资源","name": "🌸虎牙资源", "type": 1, "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8/at/json","searchable": 1, "quickSearch": 1, "filterable": 0},
 
         {"key":"FindZY","name":"🦊找资源","type":3,"api":"csp_Zhaozy","searchable":1,"playerType":1,"quickSearch":1,"filterable":1,"ext": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/token.txt","jar":"https://pan.css.lc/api/v3/file/get/90108/ts.jar?sign=gEBrQ0edOwzcRbuzlWfkRk_uIU0XRCkSwPyzSukJxZU%3D%3A0"},
         {"key":"push_agent","name":"🍭推送","type":3,"api":"csp_PushAgent","searchable":1,"playerType":1,"quickSearch":1,"filterable":1,"ext": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/token.txt"},
