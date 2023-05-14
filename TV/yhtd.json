@@ -1,8 +1,6 @@
 {    
-    "spider":"https://jasonup2020.github.io/cc.jar"
-    ,"#spider":"./XBiubiuLA4.jar"
-    
-    ,"lives":[{"name":"live","type":0,"url":"https://jasonup2020.github.io/live/001.txt","epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}]
+    "spider":"https://jasonup2020.github.io/cc.jar",    
+    "lives":[{"group":"redirect","channels":[{"name":"redirect","urls":["proxy://do=live&type=txt&ext=aHR0cHM6Ly9qYXNvbnVwMjAyMC5naXRodWIuaW8vbGl2ZS8wMDEudHh0=="]}]}]
     ,"sites":[
         
         {"key":"Kuaikan","name":"👿快看","type":3,"api":"csp_Kuaikan","searchable":1,"quickSearch":1,"filterable":1},
