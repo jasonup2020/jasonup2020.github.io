@@ -3,14 +3,11 @@
     ,"lives":[{"group":"redirect","channels":[{"name":"redirect","urls":["proxy://do=live&type=txt&ext=aHR0cHM6Ly9qYXNvbnVwMjAyMC5naXRodWIuaW8vbGl2ZS8wMDIudHh0"]}]}]
     ,"sites":[
 
-            {"key":"csp_LiteApple","name":"🍎小苹果(SP)","type":3,"api":"csp_LiteApple","searchable":1,"quickSearch":1,"filterable": 1},
-            {"key": "天空资源","name": "🌸天空资源", "type": 1, "api": "https://api.tiankongapi.com/api.php/provide/vod/?ac=list","playUrl": "","searchable": 1, "quickSearch": 1, "filterable": 0},
+ 
             {"key":"Lezhu_","name":"🐷乐猪影视","api":"csp_Lezhu","type":3,"filterable":1,"quickSearch":1,"searchable":1}, 
             {"key":"csp_Cokemv","name":"🚗可乐","type":3,"api":"csp_Cokemv","searchable":1,"quickSearch":1,"filterable":1},
             {"key":"csp_Zxzj","name":"🏠在线之家","type":3,"api":"csp_Zxzj","searchable":1,"quickSearch":1,"filterable":1}, 
 
-            {"key": "点播源3","name": "🌸点播源3", "type": 0, "api": "https://api.ykapi.net/api.php/provide/vod/at/xml","playUrl": "https://jx.ykyunbo.com/m3u8.php?url=","searchable": 1, "quickSearch": 1, "filterable": 0},
-            {"key": "点播源4","name": "🌸点播源4", "type": 1, "api": "https://kudian10.com/api.php/provide/vod/?ac=list","searchable": 1, "quickSearch": 1, "filterable": 0},
             {"key": "点播源6","name": "🌸点播源6", "type": 1, "api": "https://www.partnersky-horoskop.com/api.php/provide/vod/from/dplayer/at/json","searchable": 1, "quickSearch": 1, "filterable": 0},
             {"key": "水蜜桃研究所","name": "🌸水蜜桃研究所", "type": 1, "api": "https://51smt4.xyz/api.php/provide/vod/?ac=list","searchable": 1, "quickSearch": 1, "filterable": 0},
             {"key": "红牛资源","name": "🌸红牛资源", "type": 0, "api": "https://www.hongniuzy2.com/api.php/provide/vod/from/hnm3u8/at/xml/","playUrl": "","searchable": 1, "quickSearch": 1, "filterable": 0},
