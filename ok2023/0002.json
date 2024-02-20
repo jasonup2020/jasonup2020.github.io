@@ -3,6 +3,11 @@
     ,"lives":[{"group":"redirect","channels":[{"name":"redirect","urls":["proxy://do=live&type=txt&ext=aHR0cHM6Ly9qYXNvbnVwMjAyMC5naXRodWIuaW8vbGl2ZS8wMDIudHh0"]}]}]
     ,"sites":[ 
 
+ 
+            {"key": "39kan","name": "39影视","type": 0,"api": "https://www.39kan.com/api.php/provide/vod/at/xml","jiexiUrl": "","group": "影视","isActive": true,"status": "可用","reverseOrder": false},
+            {"key": "vipmv","name": "天堂资源","type": 0,"api": "http://vipmv.cc/api.php/provide/vod/at/xml","jiexiUrl": "https://titan.mgtv.com.o8tv.com/jiexi/?url=","group": "影视","isActive": true,"status": "可用","reverseOrder": false},
+            {"key": "kuaibozy","name": "快播资源","type": 0,"api": "http://www.kuaibozy.com/api.php/provide/vod/at/xml","jiexiUrl": "","group": "影视","isActive": true,"status": "可用","reverseOrder": false},
+            {"key":"鸡坤资源","name":"鸡坤资源","type":1,"api":"https://jkunzyapi.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"filterable":1},
             {"key":"蛋蛋视频","name":"蛋蛋视频","type":1,"api":"http://156.249.29.8/inc/apijson_vod.php","searchable":1,"quickSearch":1,"filterable":1},
             {"key":"滴滴资源","name":"滴滴资源","type":0,"api":"https://api.ddapi.cc/api.php/provide/vod/","searchable":1,"quickSearch":1,"filterable":1},
             {"key":"奶香香资源","name":"奶香香资源","type":1,"api":"https://naixxzy.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"filterable":1},
