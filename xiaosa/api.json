@@ -1,7 +1,6 @@
 {
     "spider": "https://jasonup2020.github.io/xiaosa/spider.jar",
-    "wallpaper": "http://127.0.0.1:9978/proxy?do=wallpaper",
-    "logo": "http://127.0.0.1:9978/file/TVBox/logo.png",
+    "wallpaper": "http://www.kf666888.cn/api/tvbox/img",
     "sites": [
         {
             "key": "豆瓣",
