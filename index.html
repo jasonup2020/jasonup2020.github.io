@@ -95,6 +95,10 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             transition: all 0.3s ease;
+            cursor: copy; /* 复制光标提示 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .link-list li:hover {
@@ -102,16 +106,28 @@
             transform: translateX(5px);
         }
 
-        .link-list a {
+        .link-text {
             color: #4facfe;
-            text-decoration: none;
             word-break: break-all;
             font-size: 0.95rem;
+            flex: 1;
+            user-select: all; /* 点击自动全选文本 */
         }
 
-        .link-list a:hover {
-            color: #00f2fe;
-            text-decoration: underline;
+        .copy-btn {
+            margin-left: 10px;
+            padding: 4px 8px;
+            background: rgba(79, 172, 254, 0.2);
+            border: 1px solid #4facfe;
+            border-radius: 4px;
+            color: #4facfe;
+            font-size: 0.8rem;
+            cursor: copy;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(79, 172, 254, 0.4);
         }
 
         /* 滚动条美化 */
@@ -127,6 +143,26 @@
         .link-list::-webkit-scrollbar-thumb {
             background: rgba(79, 172, 254, 0.5);
             border-radius: 3px;
+        }
+
+        /* 复制提示框 */
+        .copy-toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 242, 254, 0.9);
+            color: #0f1930;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+        }
+
+        .copy-toast.show {
+            opacity: 1;
         }
 
         /* 动画效果 */
@@ -172,6 +208,10 @@
             .content-wrapper {
                 padding: 1.5rem 1rem;
             }
+            
+            .link-text {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -183,19 +223,43 @@
             <p class="subtitle">网站正在建设中...</p>
             
             <ul class="link-list">
-                <li><a href="https://jasonup2020.github.io/ok2023/0001.json" target="_blank">https://jasonup2020.github.io/ok2023/0001.json</a></li>
-                <li><a href="https://jasonup2020.github.io/ok2023/0001.json" target="_blank">https://jasonup2020.github.io/ok2023/0001.json</a></li>
-                <li><a href="https://jasonup2020.github.io/ok2026/0323.json" target="_blank">https://jasonup2020.github.io/ok2026/0323.json</a></li>
-                <li><a href="https://jasonup2020.github.io/xiaosa/api.json" target="_blank">https://jasonup2020.github.io/xiaosa/api.json</a></li>
-                <li><a href="https://jasonup2020.github.io/tv2024/yhtd.json" target="_blank">https://jasonup2020.github.io/tv2024/yhtd.json</a></li>
-                <li><a href="https://jasonup2020.github.io/tv2024/yhtd_202404.json" target="_blank">https://jasonup2020.github.io/tv2024/yhtd_202404.json</a></li>
-                <li><a href="https://jasonup2020.github.io/tv2024/yhtd_2023.json" target="_blank">https://jasonup2020.github.io/tv2024/yhtd_2023.json</a></li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/ok2023/0001.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/ok2023/0001.json">复制</button>
+                </li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/ok2023/0001.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/ok2023/0001.json">复制</button>
+                </li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/ok2026/0323.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/ok2026/0323.json">复制</button>
+                </li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/xiaosa/api.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/xiaosa/api.json">复制</button>
+                </li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/tv2024/yhtd.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/tv2024/yhtd.json">复制</button>
+                </li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/tv2024/yhtd_202404.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/tv2024/yhtd_202404.json">复制</button>
+                </li>
+                <li>
+                    <span class="link-text">https://jasonup2020.github.io/tv2024/yhtd_2023.json</span>
+                    <button class="copy-btn" data-text="https://jasonup2020.github.io/tv2024/yhtd_2023.json">复制</button>
+                </li>
             </ul>
         </div>
     </div>
 
+    <!-- 复制提示框 -->
+    <div class="copy-toast" id="copyToast">复制成功！</div>
+
     <script>
-        // 粒子背景效果优化
+        // 粒子背景效果
         const particles = [];
         const canvas = document.getElementById('background');
         const ctx = canvas.getContext('2d');
@@ -303,8 +367,56 @@
             }
         }
 
-        // 启动动画
+        // 启动粒子动画
         animate();
+
+        // 复制功能实现
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        const toast = document.getElementById('copyToast');
+
+        // 复制函数
+        function copyText(text) {
+            // 使用Clipboard API复制文本
+            navigator.clipboard.writeText(text).then(() => {
+                // 显示复制成功提示
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+                // 降级方案：创建临时输入框复制
+                const tempInput = document.createElement('input');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                // 显示复制成功提示
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+        // 为每个复制按钮绑定点击事件
+        copyButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const textToCopy = btn.getAttribute('data-text');
+                copyText(textToCopy);
+            });
+        });
+
+        // 点击文本也可以复制
+        const linkTexts = document.querySelectorAll('.link-text');
+        linkTexts.forEach(text => {
+            text.addEventListener('click', () => {
+                const textToCopy = text.textContent.trim();
+                copyText(textToCopy);
+            });
+        });
         
         console.log('tg:roulang');
     </script>
