@@ -222,36 +222,8 @@
             <h1>即将上线</h1>
             <p class="subtitle">网站正在建设中...</p>
             
-            <ul class="link-list">
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/ok2023/0001.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/ok2023/0001.json">复制</button>
-                </li>
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/ok2023/0001.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/ok2023/0001.json">复制</button>
-                </li>
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/ok2026/0323.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/ok2026/0323.json">复制</button>
-                </li>
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/xiaosa/api.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/xiaosa/api.json">复制</button>
-                </li>
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/tv2024/yhtd.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/tv2024/yhtd.json">复制</button>
-                </li>
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/tv2024/yhtd_202404.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/tv2024/yhtd_202404.json">复制</button>
-                </li>
-                <li>
-                    <span class="link-text">https://jasonup2020.github.io/tv2024/yhtd_2023.json</span>
-                    <button class="copy-btn" data-text="https://jasonup2020.github.io/tv2024/yhtd_2023.json">复制</button>
-                </li>
-            </ul>
+            <!-- 空的列表容器，由JS动态生成内容 -->
+            <ul class="link-list" id="linkListContainer"></ul>
         </div>
     </div>
 
@@ -259,7 +231,108 @@
     <div class="copy-toast" id="copyToast">复制成功！</div>
 
     <script>
-        // 粒子背景效果
+        // ========== 地址数组配置 ==========
+        // 所有地址都放在这个数组里，后续只需修改这个数组即可
+        const linkList = [
+            "https://jasonup2020.github.io/ok2023/0001.json",
+            "https://jasonup2020.github.io/ok2023/0001.json",
+            "https://jasonup2020.github.io/ok2026/0323.json",
+            "https://jasonup2020.github.io/xiaosa/api.json",
+            "https://jasonup2020.github.io/tv2024/yhtd.json",
+            "https://jasonup2020.github.io/tv2024/yhtd_202404.json",
+            "https://jasonup2020.github.io/tv2024/yhtd_2023.json"
+        ];
+
+        // ========== 动态生成地址列表 ==========
+        function renderLinkList() {
+            const listContainer = document.getElementById('linkListContainer');
+            // 清空容器（防止重复渲染）
+            listContainer.innerHTML = '';
+            
+            // 遍历数组生成列表项
+            linkList.forEach((link, index) => {
+                // 创建列表项元素
+                const listItem = document.createElement('li');
+                
+                // 创建文本元素
+                const linkText = document.createElement('span');
+                linkText.className = 'link-text';
+                linkText.textContent = link;
+                linkText.dataset.index = index; // 标记索引，方便后续复制
+                
+                // 创建复制按钮
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-btn';
+                copyBtn.textContent = '复制';
+                copyBtn.dataset.index = index; // 标记索引，方便后续复制
+                
+                // 组装元素
+                listItem.appendChild(linkText);
+                listItem.appendChild(copyBtn);
+                
+                // 添加到容器
+                listContainer.appendChild(listItem);
+            });
+            
+            // 绑定复制事件
+            bindCopyEvents();
+        }
+
+        // ========== 复制功能 ==========
+        function copyText(text) {
+            // 使用Clipboard API复制文本
+            navigator.clipboard.writeText(text).then(() => {
+                // 显示复制成功提示
+                showToast('复制成功！');
+            }).catch(err => {
+                console.error('复制失败:', err);
+                // 降级方案：创建临时输入框复制
+                const tempInput = document.createElement('input');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                // 显示复制成功提示
+                showToast('复制成功！');
+            });
+        }
+
+        // 显示提示框
+        function showToast(message) {
+            const toast = document.getElementById('copyToast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // 绑定复制事件
+        function bindCopyEvents() {
+            // 按钮复制事件
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const index = btn.dataset.index;
+                    const textToCopy = linkList[index];
+                    copyText(textToCopy);
+                });
+            });
+
+            // 文本点击复制事件
+            const linkTexts = document.querySelectorAll('.link-text');
+            linkTexts.forEach(text => {
+                text.addEventListener('click', () => {
+                    const index = text.dataset.index;
+                    const textToCopy = linkList[index];
+                    copyText(textToCopy);
+                });
+            });
+        }
+
+        // ========== 粒子背景效果 ==========
         const particles = [];
         const canvas = document.getElementById('background');
         const ctx = canvas.getContext('2d');
@@ -367,56 +440,11 @@
             }
         }
 
+        // ========== 初始化 ==========
         // 启动粒子动画
         animate();
-
-        // 复制功能实现
-        const copyButtons = document.querySelectorAll('.copy-btn');
-        const toast = document.getElementById('copyToast');
-
-        // 复制函数
-        function copyText(text) {
-            // 使用Clipboard API复制文本
-            navigator.clipboard.writeText(text).then(() => {
-                // 显示复制成功提示
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            }).catch(err => {
-                console.error('复制失败:', err);
-                // 降级方案：创建临时输入框复制
-                const tempInput = document.createElement('input');
-                tempInput.value = text;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                
-                // 显示复制成功提示
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            });
-        }
-
-        // 为每个复制按钮绑定点击事件
-        copyButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const textToCopy = btn.getAttribute('data-text');
-                copyText(textToCopy);
-            });
-        });
-
-        // 点击文本也可以复制
-        const linkTexts = document.querySelectorAll('.link-text');
-        linkTexts.forEach(text => {
-            text.addEventListener('click', () => {
-                const textToCopy = text.textContent.trim();
-                copyText(textToCopy);
-            });
-        });
+        // 渲染地址列表
+        renderLinkList();
         
         console.log('tg:roulang');
     </script>
