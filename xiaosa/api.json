@@ -14,7 +14,7 @@
       "epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}",
       "logo": "https://logo.wyfc.qzz.io/{name}.png"
     }
-  ]
+  ],
     "sites": [
         {
             "key": "豆瓣",
