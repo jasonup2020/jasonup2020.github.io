@@ -591,7 +591,7 @@
         "ratio": 1.433
       },
       "ext": {
-        "json": "./json/哔哩视频.json",
+        "json": "./xiaosa/json/哔哩视频.json",
         "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
       }
     },
@@ -953,7 +953,7 @@
       "key": "星芽短剧",
       "name": "星芽｜短剧",
       "type": 3,
-      "api": "./py/星芽短剧.py",
+      "api": "./xiaosa/py/星芽短剧.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -964,7 +964,7 @@
       "key": "剧王短剧",
       "name": "剧王｜短剧",
       "type": 3,
-      "api": "./py/剧王短剧.py",
+      "api": "https://jasonup2020.github.io/xiaosa/py/剧王短剧.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
