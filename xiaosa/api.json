@@ -1,7 +1,20 @@
 {
     "spider": "https://jasonup2020.github.io/xiaosa/spider.jar",
     "wallpaper": "http://127.0.0.1:9978/proxy?do=wallpaper",
-    "logo": "http://127.0.0.1:9978/file/TVBox/logo.png",
+    "logo": "https://jasonup2020.github.io/xiaosa/logo.png",
+	"lives": [
+    {
+      "name": "live",
+      "boot": false,
+      "type": 0,
+      "url": "https://jasonup2020.github.io/xiaosa/live.txt",
+      "playerType": 2,
+      "ua": "okhttp/3.8.1",
+      "timeout": 20,
+      "epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}",
+      "logo": "https://logo.wyfc.qzz.io/{name}.png"
+    }
+  ]
     "sites": [
         {
             "key": "豆瓣",
