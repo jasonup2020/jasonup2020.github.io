@@ -1,0 +1,15 @@
+https://iptv.yang-1989.xyz/playlist.m3u
+
+https://iptv-org.github.io/iptv/index.m3u
+
+https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
+
+https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u
+
+https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u8
+
+https://raw.githubusercontent.com/kimwang1978/collect-txt/refs/heads/main/bbxx_lite.m3u
+
+https://raw.githubusercontent.com/best-fan/iptv-sources/refs/heads/main/cn_all_status.m3u8
+
+https://raw.githubusercontent.com/zilong7728/Collect-IPTV/refs/heads/main/best_sorted.m3u

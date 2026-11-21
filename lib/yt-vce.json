@@ -1,0 +1,15 @@
+{
+  "webview_page": "watch",
+  "webview_host": "m.youtube.com",
+  "webview_nocookie": false,
+  "playlist_max_items": 500,
+  "extract_cache_ttl": 300,
+  "sabr_clients": "ANDROID",
+  "sabr_skip_itags": [337, 401],
+  "sabr_max_parts": 4096,
+  "sabr_segment_fetch_requests": 10,
+  "sabr_video_cache_bytes": 536870912,
+  "sabr_audio_cache_bytes": 33554432,
+  "progressive_chunk_bytes": 16777216,
+  "seg": "proxy"
+}

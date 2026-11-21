@@ -1,0 +1,8 @@
+# 常规变体 + 正则混用（|re: 后到行尾都视为正则）
+CCTV13|CCTV-13|re:^cctv\s*-?\s*13
+
+# 纯正则行（收敛国内外各种拼写形态）
+re:^cnn\s*(international|world|news)?$
+re:^star\s*sports\s*[12]$
+re:^discovery\s*(science|channel)?$
+re:^探索(频道|发现)$
